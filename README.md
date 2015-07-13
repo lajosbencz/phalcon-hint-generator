@@ -21,7 +21,9 @@ The file *inject-services.txt* (optional) must exist in the same directory as th
 
  * Namespace detection
  * DocBlock generation/extension from parameters and hinted returns
+ * Properly expands property ```get```, ```set```, ```<any>```
  * Allows insertion of public properties to ```\Phalcon\Di\Injectable``` from custom text file
+ * Not limited to Phalcon, you could use it for any Zephir project (testing needed though)
 
 
 ### Known issues
