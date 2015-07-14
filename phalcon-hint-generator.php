@@ -10,7 +10,7 @@
  * @author Lajos Bencz <lazos@lazos.me>
  * @license MIT
  * @license http://opensource.org/licenses/MIT The MIT License
- * @version 0.0.2
+ * @version 0.0.3
  *
  */
 
