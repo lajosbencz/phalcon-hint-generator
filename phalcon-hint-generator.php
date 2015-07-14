@@ -17,13 +17,18 @@
 error_reporting(E_ERROR);
 
 $params = [];
-$verbose = false;
+$silent = false;
+$force = false;
 foreach ($argv as $i => $v) {
 	if ($i < 1) {
 		continue;
 	}
-	if ($v == '--verbose' || $v == '-v') {
-		$verbose = true;
+	if ($v == '--silent' || $v == '-s') {
+		$silent = true;
+		continue;
+	}
+	elseif ($v == '--force' || $v == '-f') {
+		$force = true;
 		continue;
 	}
 	$params[] = $v;
@@ -35,9 +40,11 @@ if (count($params) < 2) {
 }
 
 $ph = new PhalconHintGenerator($params[0], $params[1]);
-$ph->verbose($verbose);
+$ph->verbose(!$silent);
+$ph->force($force);
 try {
 	$ph->process();
+	exit(0);
 }
 catch (PhalconHintGenerator_AbortException $e) {
 	$ph->err($e->getMessage());
@@ -46,7 +53,7 @@ catch (PhalconHintGenerator_Exception $e) {
 	$ph->err($e->getMessage());
 }
 
-exit(0);
+exit(255);
 
 class PhalconHintGenerator_Exception extends Exception
 {
@@ -438,9 +445,22 @@ abstract class PhalconHintGenerator_Base extends PhalconHintGenerator_Message
 	 * @param $namespace
 	 * @return mixed
 	 */
-	protected static function NamespaceToPath($namespace)
+	public static function NamespaceToPath($namespace)
 	{
 		return str_replace('\\', self::DS, $namespace);
+	}
+
+	/** @var bool */
+	protected $_force = false;
+
+	public function force($force = true)
+	{
+		$this->_force = $force;
+	}
+
+	public function isForce()
+	{
+		return $this->_force;
 	}
 
 	/**
@@ -459,6 +479,7 @@ class PhalconHintGenerator_File extends PhalconHintGenerator_Base
 	const RGX_CONSTANT = '/\s+const\s+(?<name>[\w\d_]+)(?:\s*=\s*(?<def>(\'.*?\')|(".*?")|([\w\d\_\:\s\\\\]+)))\s*;/ims';
 	const RGX_PROPERTY = '/(?<mod>(?:(?:public|protected|private|static)\s+)+)(?<name>[\w\d_]+)(?:\s+=(?<def>.*?))?(?:\s*{(?<exp>\s*(?:[\w\d_]+\s*\,?\s*)+)})?;/ims';
 	const RGX_METHOD = '/(?<mod>(?:(?:public|protected|private|final|static|abstract)\s+)+)function\s*\$?(?<name>[\w\d_]+)\s*\((?<param>.*?)\)(?:\s*\-\>(?<ret>(?:\s*\|?\s*[\w\d_\<\>\\\\\[\]]+)+))?.*?(?<end>{|;)/ims';
+	//'/(?<mod>(?:(?:public|protected|private|final|static|abstract)\s+)+)function\s*\$?(?<name>[\w\d_]+)\s*\(?<prm>(.*?)\)(?:\s*\-\>(?<ret>(?:\s*\|?\s*[\w\d_\<\>\\\\\[\]]+)+))?.*?(?<end>{|;)/ims';
 	const RGX_METHOD_PARAM_1 = '/^<(?<type>[^>]+)>\s+(?<name>[\w\d_]+)\s*(?:\=\s*(?<def>.*))?$/ims';
 	const RGX_METHOD_PARAM_2 = '/^(?<type>[\w\d_\[\]]+)(!?)\s+(?<name>[\w\d_]+)\s*(?:\=\s*(?<def>.*))?$/ims';
 	const RGX_METHOD_PARAM_3 = '/^(?<name>[\w\d_]+)\s*(?:\=\s*(?<def>.*))?$/ims';
@@ -999,7 +1020,7 @@ class PhalconHintGenerator_File extends PhalconHintGenerator_Base
 
 	/**
 	 * Save result to output location
-	 * @throws Exception
+	 * @throws PhalconHintGenerator_Exception
 	 */
 	public function save()
 	{
@@ -1075,6 +1096,16 @@ class PhalconHintGenerator extends PhalconHintGenerator_Base
 	}
 
 	/**
+	 * Don't ask any questions, just do it
+	 * @param bool $force
+	 */
+	public function force($force = true)
+	{
+		parent::force($force);
+		$this->_file->force(true);
+	}
+
+	/**
 	 * Return the output directory
 	 * @return string
 	 */
@@ -1121,8 +1152,12 @@ class PhalconHintGenerator extends PhalconHintGenerator_Base
 		}
 		if (!$err) $err = "Failed to parse Phalcon version from " . PHP_EOL . self::C(self::CLR_UNDERLINE) . "{$file}";
 		$this->war($err);
-		$this->suc('No sweat, you may still use it for Zephir projects.' . PHP_EOL . '(No versioned subdirectory at output or property injections from text file.)');
-		if (!$this->confirm('Continue?')) throw new PhalconHintGenerator_AbortException($err);
+		if (!$this->isForce()) {
+			$this->suc('No sweat, you may still use it for Zephir projects.' . PHP_EOL . '(No versioned subdirectory at output or property injections from text file.)');
+			if (!$this->confirm('Continue?')) {
+				throw new PhalconHintGenerator_AbortException($err);
+			}
+		}
 		return false;
 	}
 
@@ -1134,7 +1169,7 @@ class PhalconHintGenerator extends PhalconHintGenerator_Base
 	{
 		if (count(scandir($this->_out)) > 2) {
 			$err = "Target directory is not empty";
-			if (!$this->confirm("{$err}, are you sure?")) {
+			if (!$this->isForce() && !$this->confirm("{$err}, are you sure?")) {
 				throw new PhalconHintGenerator_AbortException($err);
 			}
 		}
@@ -1155,7 +1190,7 @@ class PhalconHintGenerator extends PhalconHintGenerator_Base
 	 * Creates path in the output directory, return the real path for it
 	 * @param $path
 	 * @return string
-	 * @throws Exception
+	 * @throws PhalconHintGenerator_Exception
 	 */
 	public function createPath($path)
 	{
@@ -1164,14 +1199,13 @@ class PhalconHintGenerator extends PhalconHintGenerator_Base
 			return $path;
 		}
 		if (!mkdir($path, 0777, true)) {
-			throw new Exception("Failed to create output directory: {$path}");
+			throw new PhalconHintGenerator_Exception("Failed to create output directory: {$path}");
 		}
 		return $path;
 	}
 
 	/**
 	 * Creates a list of classes with namespace
-	 * @throws Exception
 	 * @throws PhalconHintGenerator_Exception
 	 */
 	public function buildClassList()
@@ -1246,16 +1280,15 @@ class PhalconHintGenerator extends PhalconHintGenerator_Base
 
 	/**
 	 * Generate the hints
-	 * @throws Exception
 	 * @throws PhalconHintGenerator_AbortException
 	 * @throws PhalconHintGenerator_Exception
 	 */
 	public function process()
 	{
 		$this->_start = microtime(true);
-		if (!is_readable($this->_src)) throw new Exception("Can't read source directory: {$this->_src}");
-		if (!is_dir($this->_out)) throw new Exception("Output directory does not exist: {$this->_out}");
-		if (!is_writable($this->_out)) throw new Exception("Can't write to output directory: {$this->_out}");
+		if (!is_readable($this->_src)) throw new PhalconHintGenerator_Exception("Can't read source directory: {$this->_src}");
+		if (!is_dir($this->_out)) throw new PhalconHintGenerator_Exception("Output directory does not exist: {$this->_out}");
+		if (!is_writable($this->_out)) throw new PhalconHintGenerator_Exception("Can't write to output directory: {$this->_out}");
 		$this->findPhalconVersion();
 		$this->clearOutDir();
 		$this->buildClassList();
