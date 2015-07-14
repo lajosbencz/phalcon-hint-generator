@@ -1189,6 +1189,7 @@ class PhalconHintGenerator extends PhalconHintGenerator_Base
 		}
 		$di = new RecursiveDirectoryIterator($this->_out, RecursiveDirectoryIterator::SKIP_DOTS);
 		$fi = new RecursiveIteratorIterator($di, RecursiveIteratorIterator::CHILD_FIRST);
+        $this->log("Clearing output directory", PHP_EOL, self::CLR_CYAN);
 		foreach ($fi as $i) {
 			$this->loading(self::C(self::CLR_CYAN) . "Clearing output directory");
 			if ($i->isDir()) {
