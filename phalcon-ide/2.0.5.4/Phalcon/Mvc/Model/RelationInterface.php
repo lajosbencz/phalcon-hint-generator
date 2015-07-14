@@ -24,8 +24,6 @@ interface RelationInterface
 	 * @param string $intermediateModel
 	 * @param mixed $intermediateReferencedFields
 	 *
-	 *
-	 * @return void
 	 */
 	public function setIntermediateRelation($intermediateFields, $intermediateModel, $intermediateReferencedFields);
 
@@ -53,21 +51,21 @@ interface RelationInterface
 	/**
 	 * Returns the fields
 	 *
-	 * @return void
+	 * @return string|array
 	 */
 	public function getFields();
 
 	/**
 	 * Returns the referenced fields
 	 *
-	 * @return void
+	 * @return string|array
 	 */
 	public function getReferencedFields();
 
 	/**
 	 * Returns the options
 	 *
-	 * @return void
+	 * @return string|array
 	 */
 	public function getOptions();
 
@@ -81,7 +79,7 @@ interface RelationInterface
 	/**
 	 * Returns the foreign key configuration
 	 *
-	 * @return void
+	 * @return string|array
 	 */
 	public function getForeignKey();
 
@@ -95,7 +93,7 @@ interface RelationInterface
 	/**
 	 * Gets the intermediate fields for has-*-through relations
 	 *
-	 * @return void
+	 * @return string|array
 	 */
 	public function getIntermediateFields();
 
@@ -109,7 +107,7 @@ interface RelationInterface
 	/**
 	 * Gets the intermediate referenced fields for has-*-through relations
 	 *
-	 * @return void
+	 * @return string|array
 	 */
 	public function getIntermediateReferencedFields();
 

@@ -9,8 +9,6 @@ interface AdapterInterface
 	 * Sets the default access level (Phalcon\Acl::ALLOW or Phalcon\Acl::DENY)
 	 * 
 	 * @param int $defaultAccess
-	 *
-	 * @return void
 	 */
 	public function setDefaultAction($defaultAccess);
 
@@ -77,8 +75,6 @@ interface AdapterInterface
 	 * 
 	 * @param string $resourceName
 	 * @param $accessList
-	 *
-	 * @return void
 	 */
 	public function addResourceAccess($resourceName, $accessList);
 
@@ -87,8 +83,6 @@ interface AdapterInterface
 	 * 
 	 * @param string $resourceName
 	 * @param $accessList
-	 *
-	 * @return void
 	 */
 	public function dropResourceAccess($resourceName, $accessList);
 
@@ -98,8 +92,6 @@ interface AdapterInterface
 	 * @param string $roleName
 	 * @param string $resourceName
 	 * @param $access
-	 *
-	 * @return void
 	 */
 	public function allow($roleName, $resourceName, $access);
 
@@ -109,8 +101,6 @@ interface AdapterInterface
 	 * @param string $roleName
 	 * @param string $resourceName
 	 * @param $access
-	 *
-	 * @return void
 	 */
 	public function deny($roleName, $resourceName, $access);
 

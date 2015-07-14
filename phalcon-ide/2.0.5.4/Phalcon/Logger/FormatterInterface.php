@@ -13,8 +13,6 @@ interface FormatterInterface
 	 * @param int $timestamp
 	 * @param mixed $context
 	 *
-	 *
-	 * @return void
 	 */
 	public function format($message, $type, $timestamp, $context=null);
 

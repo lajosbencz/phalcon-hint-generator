@@ -18,14 +18,14 @@ interface BuilderInterface
 	 *
 	 * @param string|array $columns
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\BuilderInterface
 	 */
 	public function columns($columns);
 
 	/**
 	 * Return the columns to be queried
 	 *
-	 * @return void
+	 * @return string|array
 	 */
 	public function getColumns();
 
@@ -34,7 +34,7 @@ interface BuilderInterface
 	 *
 	 * @param string|array $models
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\BuilderInterface
 	 */
 	public function from($models);
 
@@ -44,14 +44,14 @@ interface BuilderInterface
 	 * @param string $model
 	 * @param string $alias
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\BuilderInterface
 	 */
 	public function addFrom($model, $alias=null);
 
 	/**
 	 * Return the models who makes part of the query
 	 *
-	 * @return void
+	 * @return string|array
 	 */
 	public function getFrom();
 
@@ -62,7 +62,7 @@ interface BuilderInterface
 	 * @param string $conditions
 	 * @param string $alias
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\BuilderInterface
 	 */
 	public function join($model, $conditions=null, $alias=null);
 
@@ -74,7 +74,7 @@ interface BuilderInterface
 	 * @param string $alias
 	 * @param string $type
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\Builder
 	 */
 	public function innerJoin($model, $conditions=null, $alias=null);
 
@@ -85,7 +85,7 @@ interface BuilderInterface
 	 * @param string $conditions
 	 * @param string $alias
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\Builder
 	 */
 	public function leftJoin($model, $conditions=null, $alias=null);
 
@@ -96,7 +96,7 @@ interface BuilderInterface
 	 * @param string $conditions
 	 * @param string $alias
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\Builder
 	 */
 	public function rightJoin($model, $conditions=null, $alias=null);
 
@@ -107,7 +107,7 @@ interface BuilderInterface
 	 * @param array $bindParams
 	 * @param array $bindTypes
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\BuilderInterface
 	 */
 	public function where($conditions, $bindParams=null, $bindTypes=null);
 
@@ -118,7 +118,7 @@ interface BuilderInterface
 	 * @param array $bindParams
 	 * @param array $bindTypes
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\Builder
 	 */
 	public function andWhere($conditions, $bindParams=null, $bindTypes=null);
 
@@ -129,7 +129,7 @@ interface BuilderInterface
 	 * @param array $bindParams
 	 * @param array $bindTypes
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\Builder
 	 */
 	public function orWhere($conditions, $bindParams=null, $bindTypes=null);
 
@@ -140,7 +140,7 @@ interface BuilderInterface
 	 * @param mixed $minimum
 	 * @param mixed $maximum
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\Builder
 	 */
 	public function betweenWhere($expr, $minimum, $maximum);
 
@@ -151,7 +151,7 @@ interface BuilderInterface
 	 * @param mixed $minimum
 	 * @param mixed $maximum
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\Builder
 	 */
 	public function notBetweenWhere($expr, $minimum, $maximum);
 
@@ -178,7 +178,7 @@ interface BuilderInterface
 	/**
 	 * Return the conditions for the query
 	 *
-	 * @return void
+	 * @return string|array
 	 */
 	public function getWhere();
 
@@ -187,14 +187,14 @@ interface BuilderInterface
 	 *
 	 * @param string $orderBy
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\BuilderInterface
 	 */
 	public function orderBy($orderBy);
 
 	/**
 	 * Return the set ORDER BY clause
 	 *
-	 * @return void
+	 * @return string|array
 	 */
 	public function getOrderBy();
 
@@ -203,14 +203,14 @@ interface BuilderInterface
 	 *
 	 * @param string $having
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\BuilderInterface
 	 */
 	public function having($having);
 
 	/**
 	 * Returns the HAVING condition clause
 	 *
-	 * @return void
+	 * @return string|array
 	 */
 	public function getHaving();
 
@@ -220,14 +220,14 @@ interface BuilderInterface
 	 * @param int $limit
 	 * @param int $offset
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\BuilderInterface
 	 */
 	public function limit($limit, $offset=null);
 
 	/**
 	 * Returns the current LIMIT clause
 	 *
-	 * @return void
+	 * @return string|array
 	 */
 	public function getLimit();
 
@@ -236,28 +236,28 @@ interface BuilderInterface
 	 *
 	 * @param string $group
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\BuilderInterface
 	 */
 	public function groupBy($group);
 
 	/**
 	 * Returns the GROUP BY clause
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getGroupBy();
 
 	/**
 	 * Returns a PHQL statement built based on the builder parameters
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getPhql();
 
 	/**
 	 * Returns the query built
 	 *
-	 * @return void
+	 * @return Phalcon\Mvc\Model\QueryInterface
 	 */
 	public function getQuery();
 

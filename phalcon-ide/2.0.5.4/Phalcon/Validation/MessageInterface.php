@@ -62,7 +62,7 @@ interface MessageInterface
 	/**
 	 * Returns field name related to message
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getField();
 

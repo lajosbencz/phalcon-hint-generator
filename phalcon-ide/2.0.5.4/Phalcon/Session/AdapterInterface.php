@@ -7,8 +7,6 @@ interface AdapterInterface
 
 	/**
 	 * Starts session, optionally using an adapter
-	 *
-	 * @return void
 	 */
 	public function start();
 
@@ -16,8 +14,6 @@ interface AdapterInterface
 	 * Sets session options
 	 * 
 	 * @param array $options
-	 *
-	 * @return void
 	 */
 	public function setOptions(array $options);
 
@@ -34,7 +30,7 @@ interface AdapterInterface
 	 * @param string $index
 	 * @param mixed $defaultValue
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function get($index, $defaultValue=null);
 
@@ -44,8 +40,6 @@ interface AdapterInterface
 	 * @param string $index
 	 * @param string $value
 	 *
-	 *
-	 * @return void
 	 */
 	public function set($index, $value);
 
@@ -62,8 +56,6 @@ interface AdapterInterface
 	 * Removes a session variable from an application context
 	 * 
 	 * @param string $index
-	 *
-	 * @return void
 	 */
 	public function remove($index);
 

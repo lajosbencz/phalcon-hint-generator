@@ -16,8 +16,6 @@ interface ManagerInterface
 	 * 
 	 * @param CollectionInterface $model
 	 * @param EventsManagerInterface $eventsManager
-	 *
-	 * @return void
 	 */
 	public function setCustomEventsManager(CollectionInterface $model, EventsManagerInterface $eventsManager);
 
@@ -34,8 +32,6 @@ interface ManagerInterface
 	 * Initializes a model in the models manager
 	 * 
 	 * @param CollectionInterface $model
-	 *
-	 * @return void
 	 */
 	public function initialize(CollectionInterface $model);
 
@@ -60,8 +56,6 @@ interface ManagerInterface
 	 * 
 	 * @param CollectionInterface $model
 	 * @param string $connectionService
-	 *
-	 * @return void
 	 */
 	public function setConnectionService(CollectionInterface $model, $connectionService);
 
@@ -70,8 +64,6 @@ interface ManagerInterface
 	 * 
 	 * @param CollectionInterface $model
 	 * @param boolean $useImplicitObjectIds
-	 *
-	 * @return void
 	 */
 	public function useImplicitObjectIds(CollectionInterface $model, $useImplicitObjectIds);
 
@@ -99,8 +91,6 @@ interface ManagerInterface
 	 * 
 	 * @param string $eventName
 	 * @param CollectionInterface $model
-	 *
-	 * @return void
 	 */
 	public function notifyEvent($eventName, CollectionInterface $model);
 
@@ -109,8 +99,6 @@ interface ManagerInterface
 	 * 
 	 * @param CollectionInterface $model
 	 * @param BehaviorInterface $behavior
-	 *
-	 * @return void
 	 */
 	public function addBehavior(CollectionInterface $model, BehaviorInterface $behavior);
 

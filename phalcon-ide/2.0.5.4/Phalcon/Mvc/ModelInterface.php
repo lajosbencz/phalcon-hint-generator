@@ -22,14 +22,14 @@ interface ModelInterface
 	/**
 	 * Returns table name mapped in the model
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getSource();
 
 	/**
 	 * Returns schema name where table mapped is located
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getSchema();
 
@@ -113,7 +113,7 @@ interface ModelInterface
 	 * @param \Phalcon\Mvc\Model $object
 	 * @param array $columnMap
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model
 	 */
 	public function assign(array $data, $dataColumnMap=null, $whiteList=null);
 
@@ -126,7 +126,7 @@ interface ModelInterface
 	 * @param int $dirtyState
 	 * @param boolean $keepSnapshots
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model result
 	 */
 	public static function cloneResultMap($base, array $data, $columnMap, $dirtyState, $keepSnapshots=null);
 
@@ -137,7 +137,7 @@ interface ModelInterface
 	 * @param array $data
 	 * @param int $dirtyState
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\ModelInterface
 	 */
 	public static function cloneResult(ModelInterface $base, array $data, $dirtyState);
 
@@ -148,8 +148,6 @@ interface ModelInterface
 	 * @param mixed $columnMap
 	 * @param int $hydrationMode
 	 *
-	 *
-	 * @return void
 	 */
 	public static function cloneResultMapHydrate(array $data, $columnMap, $hydrationMode);
 
@@ -158,7 +156,7 @@ interface ModelInterface
 	 *
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return  Phalcon\Mvc\Model\ResultsetInterface
 	 */
 	public static function find($parameters=null);
 
@@ -167,7 +165,7 @@ interface ModelInterface
 	 *
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\ModelInterface
 	 */
 	public static function findFirst($parameters=null);
 
@@ -176,7 +174,7 @@ interface ModelInterface
 	 *
 	 * @param DiInterface $dependencyInjector
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\CriteriaInterface
 	 */
 	public static function query(DiInterface $dependencyInjector=null);
 
@@ -185,7 +183,7 @@ interface ModelInterface
 	 *
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return int
 	 */
 	public static function count($parameters=null);
 
@@ -194,7 +192,7 @@ interface ModelInterface
 	 *
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return double
 	 */
 	public static function sum($parameters=null);
 
@@ -203,7 +201,7 @@ interface ModelInterface
 	 *
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public static function maximum($parameters=null);
 
@@ -212,7 +210,7 @@ interface ModelInterface
 	 *
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public static function minimum($parameters=null);
 
@@ -221,7 +219,7 @@ interface ModelInterface
 	 *
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return double
 	 */
 	public static function average($parameters=null);
 
@@ -230,7 +228,7 @@ interface ModelInterface
 	 *
 	 * @param string $eventName
 	 * 
-	 * @return void
+	 * @return boolean
 	 */
 	public function fireEvent($eventName);
 
@@ -240,7 +238,7 @@ interface ModelInterface
 	 *
 	 * @param string $eventName
 	 * 
-	 * @return void
+	 * @return boolean
 	 */
 	public function fireEventCancel($eventName);
 
@@ -248,22 +246,20 @@ interface ModelInterface
 	 * Appends a customized message on the validation process
 	 * 
 	 * @param MessageInterface $message
-	 *
-	 * @return void
 	 */
 	public function appendMessage(MessageInterface $message);
 
 	/**
 	 * Check whether validation process has generated any messages
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	public function validationHasFailed();
 
 	/**
 	 * Returns all the validation messages
 	 *
-	 * @return void
+	 * @return Phalcon\Mvc\Model\MessageInterface[]
 	 */
 	public function getMessages();
 
@@ -273,7 +269,7 @@ interface ModelInterface
 	 * @param array $data
 	 * @param array $whiteList
 	 * 
-	 * @return void
+	 * @return boolean
 	 */
 	public function save($data=null, $whiteList=null);
 
@@ -284,7 +280,7 @@ interface ModelInterface
 	 * @param array $data
 	 * @param array $whiteList
 	 * 
-	 * @return void
+	 * @return boolean
 	 */
 	public function create($data=null, $whiteList=null);
 
@@ -295,14 +291,14 @@ interface ModelInterface
 	 * @param array $data
 	 * @param array $whiteList
 	 * 
-	 * @return void
+	 * @return boolean
 	 */
 	public function update($data=null, $whiteList=null);
 
 	/**
 	 * Deletes a model instance. Returning true on success or false otherwise.
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	public function delete();
 
@@ -310,14 +306,12 @@ interface ModelInterface
 	 * Returns the type of the latest operation performed by the ORM
 	 * Returns one of the OP_* class constants
 	 *
-	 * @return void
+	 * @return int
 	 */
 	public function getOperationMade();
 
 	/**
 	 * Refreshes the model attributes re-querying the record from the database
-	 *
-	 * @return void
 	 */
 	public function refresh();
 
@@ -325,8 +319,6 @@ interface ModelInterface
 	 * Skips the current operation forcing a success state
 	 * 
 	 * @param boolean $skip
-	 *
-	 * @return void
 	 */
 	public function skipOperation($skip);
 
@@ -336,7 +328,7 @@ interface ModelInterface
 	 * @param string $alias
 	 * @param array $arguments
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\ResultsetInterface
 	 */
 	public function getRelated($alias, $arguments=null);
 
@@ -347,15 +339,11 @@ interface ModelInterface
 	 * @param array $data
 	 * @param array $columnMap
 	 *
-	 *
-	 * @return void
 	 */
 	public function setSnapshotData(array $data, $columnMap=null);
 
 	/**
 	 * Reset a model instance data
-	 *
-	 * @return void
 	 */
 	public function reset();
 

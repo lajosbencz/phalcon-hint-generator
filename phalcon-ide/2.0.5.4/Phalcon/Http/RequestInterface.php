@@ -12,7 +12,7 @@ interface RequestInterface
 	 * @param string|array $filters
 	 * @param mixed $defaultValue
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function get($name=null, $filters=null, $defaultValue=null);
 
@@ -23,7 +23,7 @@ interface RequestInterface
 	 * @param string|array $filters
 	 * @param mixed $defaultValue
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function getPost($name=null, $filters=null, $defaultValue=null);
 
@@ -34,7 +34,7 @@ interface RequestInterface
 	 * @param string|array $filters
 	 * @param mixed $defaultValue
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function getQuery($name=null, $filters=null, $defaultValue=null);
 
@@ -43,7 +43,7 @@ interface RequestInterface
 	 *
 	 * @param string $name
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function getServer($name);
 
@@ -237,7 +237,7 @@ interface RequestInterface
 	 *
 	 * @param boolean $onlySuccessful
 	 * 
-	 * @return void
+	 * @return boolean
 	 */
 	public function hasFiles($onlySuccessful=false);
 
@@ -302,7 +302,7 @@ interface RequestInterface
 	/**
 	 * Gets auth info accepted by the browser/client from $_SERVER['PHP_AUTH_USER']
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function getBasicAuth();
 

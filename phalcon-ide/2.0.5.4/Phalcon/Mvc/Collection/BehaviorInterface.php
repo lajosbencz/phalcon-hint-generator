@@ -21,8 +21,6 @@ interface BehaviorInterface
 	 * 
 	 * @param string $type
 	 * @param CollectionInterface $collection
-	 *
-	 * @return void
 	 */
 	public function notify($type, CollectionInterface $collection);
 
@@ -31,8 +29,6 @@ interface BehaviorInterface
 	 * 
 	 * @param CollectionInterface $collection
 	 * @param $arguments
-	 *
-	 * @return void
 	 */
 	public function missingMethod(CollectionInterface $collection, $arguments=null);
 

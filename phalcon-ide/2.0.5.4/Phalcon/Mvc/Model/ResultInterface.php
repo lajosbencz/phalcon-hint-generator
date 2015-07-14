@@ -10,8 +10,6 @@ interface ResultInterface
 	 * 
 	 * @param boolean $dirtyState
 	 *
-	 *
-	 * @return void
 	 */
 	public function setDirtyState($dirtyState);
 

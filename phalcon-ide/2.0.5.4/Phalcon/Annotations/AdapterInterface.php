@@ -12,8 +12,6 @@ interface AdapterInterface
 	 * Sets the annotations parser
 	 * 
 	 * @param ReaderInterface $reader
-	 *
-	 * @return void
 	 */
 	public function setReader(ReaderInterface $reader);
 
@@ -29,7 +27,7 @@ interface AdapterInterface
 	 *
 	 * @param string|object $className
 	 * 
-	 * @return void
+	 * @return Phalcon\Annotations\Reflection
 	 */
 	public function get($className);
 
@@ -38,7 +36,7 @@ interface AdapterInterface
 	 *
 	 * @param string $className
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getMethods($className);
 
@@ -48,7 +46,7 @@ interface AdapterInterface
 	 * @param string $className
 	 * @param string $methodName
 	 * 
-	 * @return void
+	 * @return Phalcon\Annotations\Collection
 	 */
 	public function getMethod($className, $methodName);
 
@@ -57,7 +55,7 @@ interface AdapterInterface
 	 *
 	 * @param string $className
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getProperties($className);
 
@@ -67,7 +65,7 @@ interface AdapterInterface
 	 * @param string $className
 	 * @param string $propertyName
 	 * 
-	 * @return void
+	 * @return Phalcon\Annotations\Collection
 	 */
 	public function getProperty($className, $propertyName);
 

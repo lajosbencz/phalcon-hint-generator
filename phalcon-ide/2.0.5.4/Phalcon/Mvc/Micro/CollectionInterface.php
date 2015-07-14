@@ -24,7 +24,7 @@ interface CollectionInterface
 	/**
 	 * Returns the registered handlers
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function getHandlers();
 
@@ -34,7 +34,7 @@ interface CollectionInterface
 	 * @param mixed $handler
 	 * @param boolean $lazy
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Micro\Collection
 	 */
 	public function setHandler($handler, $lazy=false);
 
@@ -57,7 +57,7 @@ interface CollectionInterface
 	/**
 	 * Returns the main handler
 	 *
-	 * @return void
+	 * @return mixed
 	 */
 	public function getHandler();
 
@@ -68,7 +68,7 @@ interface CollectionInterface
 	 * @param callable $handler
 	 * @param string $name
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Router\RouteInterface
 	 */
 	public function map($routePattern, $handler, $name=null);
 
@@ -79,7 +79,7 @@ interface CollectionInterface
 	 * @param callable $handler
 	 * @param string $name
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Router\RouteInterface
 	 */
 	public function get($routePattern, $handler, $name=null);
 
@@ -90,7 +90,7 @@ interface CollectionInterface
 	 * @param callable $handler
 	 * @param string $name
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Router\RouteInterface
 	 */
 	public function post($routePattern, $handler, $name=null);
 
@@ -101,7 +101,7 @@ interface CollectionInterface
 	 * @param callable $handler
 	 * @param string $name
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Router\RouteInterface
 	 */
 	public function put($routePattern, $handler, $name=null);
 
@@ -112,7 +112,7 @@ interface CollectionInterface
 	 * @param callable $handler
 	 * @param string $name
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Router\RouteInterface
 	 */
 	public function patch($routePattern, $handler, $name=null);
 
@@ -123,7 +123,7 @@ interface CollectionInterface
 	 * @param callable $handler
 	 * @param string $name
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Router\RouteInterface
 	 */
 	public function head($routePattern, $handler, $name=null);
 
@@ -134,7 +134,7 @@ interface CollectionInterface
 	 * @param callable $handler
 	 * @param string $name
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Router\RouteInterface
 	 */
 	public function delete($routePattern, $handler, $name=null);
 
@@ -145,7 +145,7 @@ interface CollectionInterface
 	 * @param callable $handler
 	 * @param string $name
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Router\RouteInterface
 	 */
 	public function options($routePattern, $handler, $name=null);
 

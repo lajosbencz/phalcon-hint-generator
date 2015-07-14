@@ -9,8 +9,6 @@ interface ViewInterface extends ViewBaseInterface
 	 * Sets the layouts sub-directory. Must be a directory under the views directory. Depending of your platform, always add a trailing slash or backslash
 	 * 
 	 * @param string $layoutsDir
-	 *
-	 * @return void
 	 */
 	public function setLayoutsDir($layoutsDir);
 
@@ -25,8 +23,6 @@ interface ViewInterface extends ViewBaseInterface
 	 * Sets a partials sub-directory. Must be a directory under the views directory. Depending of your platform, always add a trailing slash or backslash
 	 * 
 	 * @param string $partialsDir
-	 *
-	 * @return void
 	 */
 	public function setPartialsDir($partialsDir);
 
@@ -41,8 +37,6 @@ interface ViewInterface extends ViewBaseInterface
 	 * Sets base path. Depending of your platform, always add a trailing slash or backslash
 	 * 
 	 * @param string $basePath
-	 *
-	 * @return void
 	 */
 	public function setBasePath($basePath);
 
@@ -57,8 +51,6 @@ interface ViewInterface extends ViewBaseInterface
 	 * Sets the render level for the view
 	 * 
 	 * @param string $level
-	 *
-	 * @return void
 	 */
 	public function setRenderLevel($level);
 
@@ -66,8 +58,6 @@ interface ViewInterface extends ViewBaseInterface
 	 * Sets default view name. Must be a file without extension in the views directory
 	 * 
 	 * @param string $viewPath
-	 *
-	 * @return void
 	 */
 	public function setMainView($viewPath);
 
@@ -82,8 +72,6 @@ interface ViewInterface extends ViewBaseInterface
 	 * Change the layout to be used instead of using the name of the latest controller name
 	 * 
 	 * @param string $layout
-	 *
-	 * @return void
 	 */
 	public function setLayout($layout);
 
@@ -99,15 +87,11 @@ interface ViewInterface extends ViewBaseInterface
 	 * 
 	 * @param string|array $templateBefore
 	 *
-	 *
-	 * @return void
 	 */
 	public function setTemplateBefore($templateBefore);
 
 	/**
 	 * Resets any template before layouts
-	 *
-	 * @return void
 	 */
 	public function cleanTemplateBefore();
 
@@ -116,15 +100,11 @@ interface ViewInterface extends ViewBaseInterface
 	 * 
 	 * @param string|array $templateAfter
 	 *
-	 *
-	 * @return void
 	 */
 	public function setTemplateAfter($templateAfter);
 
 	/**
 	 * Resets any template before layouts
-	 *
-	 * @return void
 	 */
 	public function cleanTemplateAfter();
 
@@ -151,8 +131,6 @@ interface ViewInterface extends ViewBaseInterface
 
 	/**
 	 * Starts rendering process enabling the output buffering
-	 *
-	 * @return void
 	 */
 	public function start();
 
@@ -160,8 +138,6 @@ interface ViewInterface extends ViewBaseInterface
 	 * Register templating engines
 	 * 
 	 * @param array $engines
-	 *
-	 * @return void
 	 */
 	public function registerEngines(array $engines);
 
@@ -172,8 +148,6 @@ interface ViewInterface extends ViewBaseInterface
 	 * @param string $actionName
 	 * @param array $params
 	 *
-	 *
-	 * @return void
 	 */
 	public function render($controllerName, $actionName, $params=null);
 
@@ -181,15 +155,11 @@ interface ViewInterface extends ViewBaseInterface
 	 * Choose a view different to render than last-controller/last-action
 	 * 
 	 * @param string $renderView
-	 *
-	 * @return void
 	 */
 	public function pick($renderView);
 
 	/**
 	 * Finishes the render process by stopping the output buffering
-	 *
-	 * @return void
 	 */
 	public function finish();
 
@@ -202,22 +172,16 @@ interface ViewInterface extends ViewBaseInterface
 
 	/**
 	 * Disables the auto-rendering process
-	 *
-	 * @return void
 	 */
 	public function disable();
 
 	/**
 	 * Enables the auto-rendering process
-	 *
-	 * @return void
 	 */
 	public function enable();
 
 	/**
 	 * Resets the view component to its factory default values
-	 *
-	 * @return void
 	 */
 	public function reset();
 

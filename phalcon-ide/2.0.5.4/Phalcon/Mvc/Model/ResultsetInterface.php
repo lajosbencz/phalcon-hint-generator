@@ -15,14 +15,14 @@ interface ResultsetInterface
 	/**
 	 * Get first row in the resultset
 	 *
-	 * @return void
+	 * @return Phalcon\Mvc\ModelInterface
 	 */
 	public function getFirst();
 
 	/**
 	 * Get last row in the resultset
 	 *
-	 * @return void
+	 * @return Phalcon\Mvc\ModelInterface
 	 */
 	public function getLast();
 
@@ -30,8 +30,6 @@ interface ResultsetInterface
 	 * Set if the resultset is fresh or an old one cached
 	 * 
 	 * @param boolean $isFresh
-	 *
-	 * @return void
 	 */
 	public function setIsFresh($isFresh);
 
@@ -45,7 +43,7 @@ interface ResultsetInterface
 	/**
 	 * Returns the associated cache for the resultset
 	 *
-	 * @return void
+	 * @return Phalcon\Cache\BackendInterface
 	 */
 	public function getCache();
 

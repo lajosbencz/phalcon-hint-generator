@@ -21,8 +21,6 @@ interface BehaviorInterface
 	 * 
 	 * @param string $type
 	 * @param ModelInterface $model
-	 *
-	 * @return void
 	 */
 	public function notify($type, ModelInterface $model);
 
@@ -33,8 +31,6 @@ interface BehaviorInterface
 	 * @param array $arguments
 	 * @param string $method
 	 *
-	 *
-	 * @return void
 	 */
 	public function missingMethod(ModelInterface $model, $arguments=null);
 

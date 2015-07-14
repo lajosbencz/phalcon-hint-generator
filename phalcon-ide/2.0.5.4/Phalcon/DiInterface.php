@@ -33,8 +33,6 @@ interface DiInterface extends \ArrayAccess
 	 * Removes a service in the services container
 	 * 
 	 * @param string $name
-	 *
-	 * @return void
 	 */
 	public function remove($name);
 
@@ -57,7 +55,7 @@ interface DiInterface extends \ArrayAccess
 	 * @param string $name
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function get($name, $parameters=null);
 
@@ -67,7 +65,7 @@ interface DiInterface extends \ArrayAccess
 	 * @param string $name
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function getShared($name, $parameters=null);
 
@@ -86,7 +84,7 @@ interface DiInterface extends \ArrayAccess
 	 *
 	 * @param string $name
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function getRaw($name);
 
@@ -118,7 +116,7 @@ interface DiInterface extends \ArrayAccess
 	/**
 	 * Return the services registered in the DI
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function getServices();
 
@@ -126,8 +124,6 @@ interface DiInterface extends \ArrayAccess
 	 * Set a default dependency injection container to be obtained into static methods
 	 * 
 	 * @param DiInterface $dependencyInjector
-	 *
-	 * @return void
 	 */
 	public static function setDefault(DiInterface $dependencyInjector);
 
@@ -140,8 +136,6 @@ interface DiInterface extends \ArrayAccess
 
 	/**
 	 * Resets the internal default DI
-	 *
-	 * @return void
 	 */
 	public static function reset();
 

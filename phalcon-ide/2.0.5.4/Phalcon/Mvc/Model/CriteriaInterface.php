@@ -182,14 +182,14 @@ interface CriteriaInterface
 	/**
 	 * Returns the conditions parameter in the criteria
 	 *
-	 * @return void
+	 * @return string|null
 	 */
 	public function getWhere();
 
 	/**
 	 * Returns the conditions parameter in the criteria
 	 *
-	 * @return void
+	 * @return string|null
 	 */
 	public function getConditions();
 
@@ -199,21 +199,21 @@ interface CriteriaInterface
 	 * an array with 'number' and 'offset' keys if an offset was set with the limit,
 	 * or null if limit has not been set.
 	 *
-	 * @return void
+	 * @return int|array|null
 	 */
 	public function getLimit();
 
 	/**
 	 * Returns the order parameter in the criteria
 	 *
-	 * @return void
+	 * @return string|null
 	 */
 	public function getOrder();
 
 	/**
 	 * Returns all the parameters defined in the criteria
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function getParams();
 

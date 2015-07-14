@@ -15,7 +15,7 @@ interface StrategyInterface
 	 * @param ModelInterface $model
 	 * @param DiInterface $dependencyInjector
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getMetaData(ModelInterface $model, DiInterface $dependencyInjector);
 
@@ -25,7 +25,7 @@ interface StrategyInterface
 	 * @param ModelInterface $model
 	 * @param DiInterface $dependencyInjector
 	 * 
-	 * @return void
+	 * @return array
 	 * @todo Not implemented
 	 */
 	public function getColumnMaps(ModelInterface $model, DiInterface $dependencyInjector);

@@ -13,14 +13,14 @@ interface AdapterInterface
 	 *
 	 * @param FormatterInterface $formatter
 	 * 
-	 * @return void
+	 * @return Phalcon\Logger\Adapter
 	 */
 	public function setFormatter(FormatterInterface $formatter);
 
 	/**
 	 * Returns the internal formatter
 	 *
-	 * @return void
+	 * @return Phalcon\Logger\FormatterInterface
 	 */
 	public function getFormatter();
 
@@ -29,14 +29,14 @@ interface AdapterInterface
 	 *
 	 * @param int $level
 	 * 
-	 * @return void
+	 * @return Phalcon\Logger\Adapter
 	 */
 	public function setLogLevel($level);
 
 	/**
 	 * Returns the current log level
 	 *
-	 * @return void
+	 * @return int
 	 */
 	public function getLogLevel();
 
@@ -47,29 +47,29 @@ interface AdapterInterface
 	 * @param mixed $message
 	 * @param array $context
 	 * 
-	 * @return void
+	 * @return Phalcon\Logger\Adapter1
 	 */
 	public function log($type, $message=null, array $context=null);
 
 	/**
  	 * Starts a transaction
  	 *
- 	 * @return void
-	 */
+ 	 * @return Phalcon\Logger\Adapter
+ 	 */
 	public function begin();
 
 	/**
  	 * Commits the internal transaction
  	 *
- 	 * @return void
-	 */
+ 	 * @return Phalcon\Logger\Adapter
+ 	 */
 	public function commit();
 
 	/**
  	 * Rollbacks the internal transaction
  	 *
- 	 * @return void
-	 */
+ 	 * @return Phalcon\Logger\Adapter
+ 	 */
 	public function rollback();
 
 	/**
@@ -85,8 +85,8 @@ interface AdapterInterface
 	 * @param string $message
 	 * @param array $context
 	 * 
- 	 * @return void
-	 */
+ 	 * @return Phalcon\Logger\Adapter
+ 	 */
 	public function debug($message, array $context=null);
 
 	/**
@@ -95,8 +95,8 @@ interface AdapterInterface
 	 * @param string $message
 	 * @param array $context
 	 * 
- 	 * @return void
-	 */
+ 	 * @return Phalcon\Logger\Adapter
+ 	 */
 	public function error($message, array $context=null);
 
 	/**
@@ -105,8 +105,8 @@ interface AdapterInterface
 	 * @param string $message
 	 * @param array $context
 	 * 
- 	 * @return void
-	 */
+ 	 * @return Phalcon\Logger\Adapter
+ 	 */
 	public function info($message, array $context=null);
 
 	/**
@@ -115,8 +115,8 @@ interface AdapterInterface
 	 * @param string $message
 	 * @param array $context
 	 * 
- 	 * @return void
-	 */
+ 	 * @return Phalcon\Logger\Adapter
+ 	 */
 	public function notice($message, array $context=null);
 
 	/**
@@ -125,8 +125,8 @@ interface AdapterInterface
 	 * @param string $message
 	 * @param array $context
 	 * 
- 	 * @return void
-	 */
+ 	 * @return Phalcon\Logger\Adapter
+ 	 */
 	public function warning($message, array $context=null);
 
 	/**
@@ -135,8 +135,8 @@ interface AdapterInterface
 	 * @param string $message
 	 * @param array $context
 	 * 
- 	 * @return void
-	 */
+ 	 * @return Phalcon\Logger\Adapter
+ 	 */
 	public function alert($message, array $context=null);
 
 	/**
@@ -145,8 +145,8 @@ interface AdapterInterface
 	 * @param string $message
 	 * @param array $context
 	 * 
- 	 * @return void
-	 */
+ 	 * @return Phalcon\Logger\Adapter
+ 	 */
 	public function emergency($message, array $context=null);
 
 }

@@ -7,15 +7,11 @@ interface BagInterface
 
 	/**
 	 * Initializes the session bag. This method must not be called directly, the class calls it when its internal data is accesed
-	 *
-	 * @return void
 	 */
 	public function initialize();
 
 	/**
 	 * Destroyes the session bag
-	 *
-	 * @return void
 	 */
 	public function destroy();
 
@@ -25,8 +21,6 @@ interface BagInterface
 	 * @param string $property
 	 * @param string $value
 	 *
-	 *
-	 * @return void
 	 */
 	public function set($property, $value);
 
@@ -36,7 +30,7 @@ interface BagInterface
 	 * @param string $property
 	 * @param mixed $defaultValue
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function get($property, $defaultValue=null);
 
@@ -55,8 +49,6 @@ interface BagInterface
 	 * @param string $property
 	 * @param string $value
 	 *
-	 *
-	 * @return void
 	 */
 	public function __set($property, $value);
 
@@ -65,7 +57,7 @@ interface BagInterface
 	 *
 	 * @param string $property
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function __get($property);
 

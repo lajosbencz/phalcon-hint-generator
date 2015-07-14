@@ -58,8 +58,6 @@ abstract class Resultset
 	 * @param BackendInterface $cache
 	 * @param array $columnTypes
 	 *
-	 *
-	 * @return mixed
 	 */
 	public function __construct($result, BackendInterface $cache=null) {}
 

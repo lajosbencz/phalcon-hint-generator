@@ -10,7 +10,7 @@ interface EntityInterface
 	 *
 	 * @param string $attribute
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function readAttribute($attribute);
 
@@ -20,8 +20,6 @@ interface EntityInterface
 	 * @param string $attribute
 	 * @param mixed $value
 	 *
-	 *
-	 * @return void
 	 */
 	public function writeAttribute($attribute, $value);
 

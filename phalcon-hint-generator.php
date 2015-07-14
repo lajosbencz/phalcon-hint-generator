@@ -10,7 +10,6 @@
  * @author Lajos Bencz <lazos@lazos.me>
  * @license MIT
  * @license http://opensource.org/licenses/MIT The MIT License
- * @version 0.0.3
  *
  */
 
@@ -933,8 +932,9 @@ class PhalconHintGenerator_File extends PhalconHintGenerator_Base
 			$prms = trim($m['param'][$mk][0]);
 			$hint = trim($m['ret'][$mk][0]);
 			$returns = false;
+            $abstract = $m['end'][$mk][0] !== '{';
 
-			if ($m['end'][$mk][0] !== '{') {
+			if ($abstract) {
 				$end = ';';
 			} else {
 				$end = ' {}';
@@ -1010,7 +1010,21 @@ class PhalconHintGenerator_File extends PhalconHintGenerator_Base
 			}
 
 			$line .= implode(', ', $prms) . ")" . $end;
-			$comment = $this->getComment($this->_commentFrom, $m[0][$mk][1], $types, trim($hint) ?: ($returns ? 'mixed' : ($name == '__construct' ? false : 'void')));
+            $hint = trim($hint);
+            if(!$hint) {
+                if($abstract || $name==='__construct') {
+                    $hint = false;
+                }
+                else {
+                    if($returns) {
+                        $hint = 'mixed';
+                    }
+                    else {
+                        $hint = 'void';
+                    }
+                }
+            }
+            $comment = $this->getComment($this->_commentFrom, $m[0][$mk][1], $types, $hint);
 
 			$this->_result .= $comment . $line . PHP_EOL . PHP_EOL;
 

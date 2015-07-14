@@ -21,22 +21,18 @@ interface FrontendInterface
 
 	/**
 	 * Starts the frontend
-	 *
-	 * @return void
 	 */
 	public function start();
 
 	/**
 	 * Returns output cached content
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getContent();
 
 	/**
 	 * Stops the frontend
-	 *
-	 * @return void
 	 */
 	public function stop();
 
@@ -45,8 +41,6 @@ interface FrontendInterface
 	 * 
 	 * @param mixed $data
 	 *
-	 *
-	 * @return void
 	 */
 	public function beforeStore($data);
 
@@ -55,8 +49,6 @@ interface FrontendInterface
 	 * 
 	 * @param mixed $data
 	 *
-	 *
-	 * @return void
 	 */
 	public function afterRetrieve($data);
 

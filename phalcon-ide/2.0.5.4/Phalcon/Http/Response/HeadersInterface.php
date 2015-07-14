@@ -11,8 +11,6 @@ interface HeadersInterface
 	 * @param string $name
 	 * @param string $value
 	 *
-	 *
-	 * @return void
 	 */
 	public function set($name, $value);
 
@@ -21,7 +19,7 @@ interface HeadersInterface
 	 *
 	 * @param string $name
 	 * 
-	 * @return void
+	 * @return string
 	 */
 	public function get($name);
 
@@ -30,8 +28,6 @@ interface HeadersInterface
 	 * 
 	 * @param string $header
 	 *
-	 *
-	 * @return void
 	 */
 	public function setRaw($header);
 
@@ -44,8 +40,6 @@ interface HeadersInterface
 
 	/**
 	 * Reset set headers
-	 *
-	 * @return void
 	 */
 	public function reset();
 

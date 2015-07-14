@@ -13,15 +13,13 @@ interface CollectionInterface
 	 * 
 	 * @param mixed $id
 	 *
-	 *
-	 * @return void
 	 */
 	public function setId($id);
 
 	/**
 	 * Returns the value of the _id property
 	 *
-	 * @return void
+	 * @return MongoId
 	 */
 	public function getId();
 
@@ -43,15 +41,13 @@ interface CollectionInterface
 	 * Sets a service in the services container that returns the Mongo database
 	 * 
 	 * @param string $connectionService
-	 *
-	 * @return void
 	 */
 	public function setConnectionService($connectionService);
 
 	/**
 	 * Retrieves a database connection
 	 *
-	 * @return void
+	 * @return MongoDb
 	 */
 	public function getConnection();
 
@@ -102,8 +98,6 @@ interface CollectionInterface
 	 * Appends a customized message on the validation process
 	 * 
 	 * @param MessageInterface $message
-	 *
-	 * @return void
 	 */
 	public function appendMessage(MessageInterface $message);
 
@@ -128,7 +122,7 @@ interface CollectionInterface
 	 *
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public static function findFirst(array $parameters=null);
 
@@ -137,7 +131,7 @@ interface CollectionInterface
 	 *
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return  array
 	 */
 	public static function find(array $parameters=null);
 
@@ -146,7 +140,7 @@ interface CollectionInterface
 	 *
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public static function count(array $parameters=null);
 

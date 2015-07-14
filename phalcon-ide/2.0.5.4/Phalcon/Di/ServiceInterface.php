@@ -19,8 +19,6 @@ interface ServiceInterface
 	 * Returns the service's name
 	 *
 	 * @param string
-	 *
-	 * @return void
 	 */
 	public function getName();
 
@@ -28,8 +26,6 @@ interface ServiceInterface
 	 * Sets if the service is shared or not
 	 * 
 	 * @param boolean $shared
-	 *
-	 * @return void
 	 */
 	public function setShared($shared);
 
@@ -45,15 +41,13 @@ interface ServiceInterface
 	 * 
 	 * @param mixed $definition
 	 *
-	 *
-	 * @return void
 	 */
 	public function setDefinition($definition);
 
 	/**
 	 * Returns the service definition
 	 *
-	 * @return void
+	 * @return mixed
 	 */
 	public function getDefinition();
 
@@ -63,7 +57,7 @@ interface ServiceInterface
 	 * @param array $parameters
 	 * @param \Phalcon\DiInterface $dependencyInjector
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function resolve($parameters=null, \Phalcon\DiInterface $dependencyInjector=null);
 

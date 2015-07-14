@@ -9,8 +9,6 @@ interface UrlInterface
 	 * Sets a prefix to all the urls generated
 	 * 
 	 * @param string $baseUri
-	 *
-	 * @return void
 	 */
 	public function setBaseUri($baseUri);
 
@@ -25,8 +23,6 @@ interface UrlInterface
 	 * Sets a base paths for all the generated paths
 	 * 
 	 * @param string $basePath
-	 *
-	 * @return void
 	 */
 	public function setBasePath($basePath);
 

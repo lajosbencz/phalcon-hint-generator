@@ -16,112 +16,112 @@ interface ColumnInterface
 	/**
 	 * Returns schema's table related to column
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getSchemaName();
 
 	/**
 	 * Returns column name
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getName();
 
 	/**
 	 * Returns column type
 	 *
-	 * @return void
+	 * @return int
 	 */
 	public function getType();
 
 	/**
 	 * Returns column type reference
 	 *
-	 * @return void
+	 * @return int
 	 */
 	public function getTypeReference();
 
 	/**
 	 * Returns column type values
 	 *
-	 * @return void
+	 * @return int
 	 */
 	public function getTypeValues();
 
 	/**
 	 * Returns column size
 	 *
-	 * @return void
+	 * @return int
 	 */
 	public function getSize();
 
 	/**
 	 * Returns column scale
 	 *
-	 * @return void
+	 * @return int
 	 */
 	public function getScale();
 
 	/**
 	 * Returns true if number column is unsigned
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	public function isUnsigned();
 
 	/**
 	 * Not null
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	public function isNotNull();
 
 	/**
 	 * Column is part of the primary key?
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	public function isPrimary();
 
 	/**
 	 * Auto-Increment
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	public function isAutoIncrement();
 
 	/**
 	 * Check whether column have an numeric type
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	public function isNumeric();
 
 	/**
 	 * Check whether column have first position in table
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	public function isFirst();
 
 	/**
 	 * Check whether field absolute to position in table
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getAfterPosition();
 
 	/**
 	 * Returns the type of bind handling
 	 *
-	 * @return void
+	 * @return int
 	 */
 	public function getBindType();
 
 	/**
 	 * Returns default value of column
 	 *
-	 * @return void
+	 * @return int
 	 */
 	public function getDefault();
 

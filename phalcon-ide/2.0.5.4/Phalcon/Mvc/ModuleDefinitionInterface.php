@@ -12,8 +12,6 @@ interface ModuleDefinitionInterface
 	 * Registers an autoloader related to the module
 	 * 
 	 * @param DiInterface $dependencyInjector
-	 *
-	 * @return void
 	 */
 	public function registerAutoloaders(DiInterface $dependencyInjector=null);
 
@@ -21,8 +19,6 @@ interface ModuleDefinitionInterface
 	 * Registers services related to the module
 	 * 
 	 * @param DiInterface $dependencyInjector
-	 *
-	 * @return void
 	 */
 	public function registerServices(DiInterface $dependencyInjector);
 

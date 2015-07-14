@@ -16,8 +16,6 @@ interface AdapterInterface
 	 * Set the current page number
 	 * 
 	 * @param int $page
-	 *
-	 * @return void
 	 */
 	public function setCurrentPage($page);
 
@@ -32,8 +30,6 @@ interface AdapterInterface
 	 * Set current rows limit
 	 * 
 	 * @param int $limit
-	 *
-	 * @return void
 	 */
 	public function setLimit($limit);
 

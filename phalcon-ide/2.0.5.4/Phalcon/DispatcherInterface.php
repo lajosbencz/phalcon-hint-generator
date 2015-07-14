@@ -9,8 +9,6 @@ interface DispatcherInterface
 	 * Sets the default action suffix
 	 * 
 	 * @param string $actionSuffix
-	 *
-	 * @return void
 	 */
 	public function setActionSuffix($actionSuffix);
 
@@ -18,8 +16,6 @@ interface DispatcherInterface
 	 * Sets the default namespace
 	 * 
 	 * @param string $defaultNamespace
-	 *
-	 * @return void
 	 */
 	public function setDefaultNamespace($defaultNamespace);
 
@@ -27,8 +23,6 @@ interface DispatcherInterface
 	 * Sets the default action name
 	 * 
 	 * @param string $actionName
-	 *
-	 * @return void
 	 */
 	public function setDefaultAction($actionName);
 
@@ -36,8 +30,6 @@ interface DispatcherInterface
 	 * Sets the namespace which the controller belongs to
 	 * 
 	 * @param string $namespaceName
-	 *
-	 * @return void
 	 */
 	public function setNamespaceName($namespaceName);
 
@@ -45,8 +37,6 @@ interface DispatcherInterface
 	 * Sets the module name which the application belongs to
 	 * 
 	 * @param string $moduleName
-	 *
-	 * @return void
 	 */
 	public function setModuleName($moduleName);
 
@@ -54,8 +44,6 @@ interface DispatcherInterface
 	 * Sets the action name to be dispatched
 	 * 
 	 * @param string $actionName
-	 *
-	 * @return void
 	 */
 	public function setActionName($actionName);
 
@@ -71,8 +59,6 @@ interface DispatcherInterface
 	 * 
 	 * @param array $params
 	 *
-	 *
-	 * @return void
 	 */
 	public function setParams($params);
 
@@ -89,8 +75,6 @@ interface DispatcherInterface
 	 * @param mixed $param
 	 * @param mixed $value
 	 *
-	 *
-	 * @return void
 	 */
 	public function setParam($param, $value);
 
@@ -100,7 +84,7 @@ interface DispatcherInterface
 	 * @param mixed $param
 	 * @param string|array $filters
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function getParam($param, $filters=null);
 
@@ -114,14 +98,14 @@ interface DispatcherInterface
 	/**
 	 * Returns value returned by the lastest dispatched action
 	 *
-	 * @return void
+	 * @return mixed
 	 */
 	public function getReturnedValue();
 
 	/**
 	 * Dispatches a handle action taking into account the routing parameters
 	 *
-	 * @return void
+	 * @return object
 	 */
 	public function dispatch();
 
@@ -130,8 +114,6 @@ interface DispatcherInterface
 	 * 
 	 * @param array $forward
 	 *
-	 *
-	 * @return void
 	 */
 	public function forward($forward);
 

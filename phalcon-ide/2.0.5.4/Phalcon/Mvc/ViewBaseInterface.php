@@ -9,8 +9,6 @@ interface ViewBaseInterface
 	 * Sets views directory. Depending of your platform, always add a trailing slash or backslash
 	 * 
 	 * @param string $viewsDir
-	 *
-	 * @return void
 	 */
 	public function setViewsDir($viewsDir);
 
@@ -27,8 +25,6 @@ interface ViewBaseInterface
 	 * @param string $key
 	 * @param mixed $value
 	 *
-	 *
-	 * @return void
 	 */
 	public function setParamToView($key, $value);
 
@@ -38,8 +34,6 @@ interface ViewBaseInterface
 	 * @param string $key
 	 * @param mixed $value
 	 *
-	 *
-	 * @return void
 	 */
 	public function setVar($key, $value);
 
@@ -62,8 +56,6 @@ interface ViewBaseInterface
 	 * 
 	 * @param boolean|array $options
 	 *
-	 *
-	 * @return void
 	 */
 	public function cache($options=true);
 
@@ -71,8 +63,6 @@ interface ViewBaseInterface
 	 * Externally sets the view content
 	 * 
 	 * @param string $content
-	 *
-	 * @return void
 	 */
 	public function setContent($content);
 

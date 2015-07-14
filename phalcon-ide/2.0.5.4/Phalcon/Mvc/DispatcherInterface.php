@@ -13,8 +13,6 @@ interface DispatcherInterface extends DispatcherInterfaceBase
 	 * Sets the default controller suffix
 	 * 
 	 * @param string $controllerSuffix
-	 *
-	 * @return void
 	 */
 	public function setControllerSuffix($controllerSuffix);
 
@@ -22,8 +20,6 @@ interface DispatcherInterface extends DispatcherInterfaceBase
 	 * Sets the default controller name
 	 * 
 	 * @param string $controllerName
-	 *
-	 * @return void
 	 */
 	public function setDefaultController($controllerName);
 
@@ -31,8 +27,6 @@ interface DispatcherInterface extends DispatcherInterfaceBase
 	 * Sets the controller name to be dispatched
 	 * 
 	 * @param string $controllerName
-	 *
-	 * @return void
 	 */
 	public function setControllerName($controllerName);
 

@@ -13,8 +13,6 @@ interface ManagerInterface
 	 * Initializes a model in the model manager
 	 * 
 	 * @param ModelInterface $model
-	 *
-	 * @return void
 	 */
 	public function initialize(ModelInterface $model);
 
@@ -42,8 +40,6 @@ interface ManagerInterface
 	 * 
 	 * @param ModelInterface $model
 	 * @param string $schema
-	 *
-	 * @return void
 	 */
 	public function setModelSchema(ModelInterface $model, $schema);
 
@@ -61,8 +57,6 @@ interface ManagerInterface
 	 * 
 	 * @param ModelInterface $model
 	 * @param string $connectionService
-	 *
-	 * @return void
 	 */
 	public function setConnectionService(ModelInterface $model, $connectionService);
 
@@ -71,8 +65,6 @@ interface ManagerInterface
 	 * 
 	 * @param ModelInterface $model
 	 * @param string $connectionService
-	 *
-	 * @return void
 	 */
 	public function setReadConnectionService(ModelInterface $model, $connectionService);
 
@@ -90,8 +82,6 @@ interface ManagerInterface
 	 * 
 	 * @param ModelInterface $model
 	 * @param string $connectionService
-	 *
-	 * @return void
 	 */
 	public function setWriteConnectionService(ModelInterface $model, $connectionService);
 
@@ -157,7 +147,7 @@ interface ManagerInterface
 	 * @param mixed $referencedFields
 	 * @param array $options
 	 * 
-	 * @return void
+	 * @return  Phalcon\Mvc\Model\RelationInterface
 	 */
 	public function addHasOne(ModelInterface $model, $fields, $referencedModel, $referencedFields, $options=null);
 
@@ -170,7 +160,7 @@ interface ManagerInterface
 	 * @param mixed $referencedFields
 	 * @param array $options
 	 * 
-	 * @return void
+	 * @return 	Phalcon\Mvc\Model\RelationInterface
 	 */
 	public function addBelongsTo(ModelInterface $model, $fields, $referencedModel, $referencedFields, $options=null);
 
@@ -183,7 +173,7 @@ interface ManagerInterface
 	 * @param mixed $referencedFields
 	 * @param array $options
 	 * 
-	 * @return void
+	 * @return 	Phalcon\Mvc\Model\RelationInterface
 	 */
 	public function addHasMany(ModelInterface $model, $fields, $referencedModel, $referencedFields, $options=null);
 
@@ -193,7 +183,7 @@ interface ManagerInterface
 	 * @param string $modelName
 	 * @param string $modelRelation
 	 * 
-	 * @return void
+	 * @return 	boolean
 	 */
 	public function existsBelongsTo($modelName, $modelRelation);
 
@@ -203,7 +193,7 @@ interface ManagerInterface
 	 * @param string $modelName
 	 * @param string $modelRelation
 	 * 
-	 * @return void
+	 * @return 	boolean
 	 */
 	public function existsHasMany($modelName, $modelRelation);
 
@@ -213,7 +203,7 @@ interface ManagerInterface
 	 * @param string $modelName
 	 * @param string $modelRelation
 	 * 
-	 * @return void
+	 * @return 	boolean
 	 */
 	public function existsHasOne($modelName, $modelRelation);
 
@@ -226,7 +216,7 @@ interface ManagerInterface
 	 * @param ModelInterface $record
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\ResultsetInterface
 	 */
 	public function getBelongsToRecords($method, $modelName, $modelRelation, ModelInterface $record, $parameters=null);
 
@@ -239,7 +229,7 @@ interface ManagerInterface
 	 * @param ModelInterface $record
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\ResultsetInterface
 	 */
 	public function getHasManyRecords($method, $modelName, $modelRelation, ModelInterface $record, $parameters=null);
 
@@ -252,7 +242,7 @@ interface ManagerInterface
 	 * @param ModelInterface $record
 	 * @param array $parameters
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\ResultsetInterface
 	 */
 	public function getHasOneRecords($method, $modelName, $modelRelation, ModelInterface $record, $parameters=null);
 
@@ -261,7 +251,7 @@ interface ManagerInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getBelongsTo(ModelInterface $model);
 
@@ -270,7 +260,7 @@ interface ManagerInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getHasMany(ModelInterface $model);
 
@@ -279,7 +269,7 @@ interface ManagerInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getHasOne(ModelInterface $model);
 
@@ -288,7 +278,7 @@ interface ManagerInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getHasOneAndHasMany(ModelInterface $model);
 
@@ -297,7 +287,7 @@ interface ManagerInterface
 	 *
 	 * @param string $modelName
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\RelationInterface[]
 	 */
 	public function getRelations($modelName);
 
@@ -307,7 +297,7 @@ interface ManagerInterface
 	 * @param string $first
 	 * @param string $second
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getRelationsBetween($first, $second);
 
@@ -316,7 +306,7 @@ interface ManagerInterface
 	 *
 	 * @param string $phql
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\QueryInterface
 	 */
 	public function createQuery($phql);
 
@@ -326,7 +316,7 @@ interface ManagerInterface
 	 * @param string $phql
 	 * @param array $placeholders
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\QueryInterface
 	 */
 	public function executeQuery($phql, $placeholders=null);
 
@@ -335,7 +325,7 @@ interface ManagerInterface
 	 *
 	 * @param string $params
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query\BuilderInterface
 	 */
 	public function createBuilder($params=null);
 
@@ -344,8 +334,6 @@ interface ManagerInterface
 	 * 
 	 * @param ModelInterface $model
 	 * @param \Phalcon\Mvc\Model\BehaviorInterface $behavior
-	 *
-	 * @return void
 	 */
 	public function addBehavior(ModelInterface $model, \Phalcon\Mvc\Model\BehaviorInterface $behavior);
 
@@ -356,8 +344,6 @@ interface ManagerInterface
 	 * @param string $eventName
 	 * @param ModelInterface $model
 	 *
-	 *
-	 * @return void
 	 */
 	public function notifyEvent($eventName, ModelInterface $model);
 
@@ -370,14 +356,14 @@ interface ManagerInterface
 	 * @param string $eventName
 	 * @param array $data
 	 * 
-	 * @return void
+	 * @return boolean
 	 */
 	public function missingMethod(ModelInterface $model, $eventName, $data);
 
 	/**
 	 * Returns the last query created or executed in the
 	 *
-	 * @return void
+	 * @return Phalcon\Mvc\Model\QueryInterface
 	 */
 	public function getLastQuery();
 
@@ -387,7 +373,7 @@ interface ManagerInterface
 	 * @param string $modelName
 	 * @param string $alias
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Relation
 	 */
 	public function getRelationByAlias($modelName, $alias);
 

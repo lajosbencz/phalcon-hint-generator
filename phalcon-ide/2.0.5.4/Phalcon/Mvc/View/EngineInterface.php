@@ -32,8 +32,6 @@ interface EngineInterface
 	 * @param string $path
 	 * @param mixed $params
 	 * @param boolean $mustClean
-	 *
-	 * @return void
 	 */
 	public function render($path, $params, $mustClean=false);
 

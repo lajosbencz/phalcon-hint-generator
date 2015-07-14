@@ -30,15 +30,11 @@ interface ManagerInterface
 
 	/**
 	 * Rollbacks active transactions within the manager
-	 *
-	 * @return void
 	 */
 	public function rollbackPendent();
 
 	/**
 	 * Commmits active transactions within the manager
-	 *
-	 * @return void
 	 */
 	public function commit();
 
@@ -48,8 +44,6 @@ interface ManagerInterface
 	 * 
 	 * @param boolean $collect
 	 *
-	 *
-	 * @return void
 	 */
 	public function rollback($collect=false);
 
@@ -57,8 +51,6 @@ interface ManagerInterface
 	 * Notifies the manager about a rollbacked transaction
 	 * 
 	 * @param \Phalcon\Mvc\Model\TransactionInterface $transaction
-	 *
-	 * @return void
 	 */
 	public function notifyRollback(\Phalcon\Mvc\Model\TransactionInterface $transaction);
 
@@ -66,15 +58,11 @@ interface ManagerInterface
 	 * Notifies the manager about a commited transaction
 	 * 
 	 * @param \Phalcon\Mvc\Model\TransactionInterface $transaction
-	 *
-	 * @return void
 	 */
 	public function notifyCommit(\Phalcon\Mvc\Model\TransactionInterface $transaction);
 
 	/**
 	 * Remove all the transactions from the manager
-	 *
-	 * @return void
 	 */
 	public function collectTransactions();
 

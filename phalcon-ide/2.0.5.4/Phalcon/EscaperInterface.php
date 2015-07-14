@@ -10,15 +10,13 @@ interface EscaperInterface
 	 * 
 	 * @param string $encoding
 	 *
-	 *
-	 * @return void
 	 */
 	public function setEncoding($encoding);
 
 	/**
 	 * Returns the internal encoding used by the escaper
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getEncoding();
 
@@ -27,9 +25,7 @@ interface EscaperInterface
 	 * 
 	 * @param int $quoteType
      *
-     *
-	 * @return void
-	 */
+     */
 	public function setHtmlQuoteType($quoteType);
 
 	/**
@@ -37,8 +33,8 @@ interface EscaperInterface
      *
 	 * @param string $text
 	 * 
-     * @return void
-	 */
+     * @return string
+     */
 	public function escapeHtml($text);
 
 	/**
@@ -46,8 +42,8 @@ interface EscaperInterface
      *
 	 * @param string $text
 	 * 
-     * @return void
-	 */
+     * @return string
+     */
 	public function escapeHtmlAttr($text);
 
 	/**
@@ -55,7 +51,7 @@ interface EscaperInterface
 	 *
 	 * @param string $css
 	 * 
-	 * @return void
+	 * @return string
 	 */
 	public function escapeCss($css);
 
@@ -64,7 +60,7 @@ interface EscaperInterface
 	 *
 	 * @param string $js
 	 * 
-	 * @return void
+	 * @return string
 	 */
 	public function escapeJs($js);
 
@@ -73,8 +69,8 @@ interface EscaperInterface
      *
 	 * @param string $url
 	 * 
-     * @return void
-	 */
+     * @return string
+     */
 	public function escapeUrl($url);
 
 }

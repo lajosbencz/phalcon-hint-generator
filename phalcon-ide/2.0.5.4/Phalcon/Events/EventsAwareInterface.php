@@ -9,8 +9,6 @@ interface EventsAwareInterface
 	 * Sets the events manager
 	 * 
 	 * @param ManagerInterface $eventsManager
-	 *
-	 * @return void
 	 */
 	public function setEventsManager(ManagerInterface $eventsManager);
 

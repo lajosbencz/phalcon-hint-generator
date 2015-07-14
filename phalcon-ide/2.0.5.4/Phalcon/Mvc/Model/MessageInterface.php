@@ -20,15 +20,13 @@ interface MessageInterface
 	 * 
 	 * @param string $type
 	 *
-	 *
-	 * @return void
 	 */
 	public function setType($type);
 
 	/**
 	 * Returns message type
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getType();
 
@@ -37,15 +35,13 @@ interface MessageInterface
 	 * 
 	 * @param string $message
 	 *
-	 *
-	 * @return void
 	 */
 	public function setMessage($message);
 
 	/**
 	 * Returns verbose message
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getMessage();
 
@@ -54,15 +50,13 @@ interface MessageInterface
 	 * 
 	 * @param string $field
 	 *
-	 *
-	 * @return void
 	 */
 	public function setField($field);
 
 	/**
 	 * Returns field name related to message
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getField();
 

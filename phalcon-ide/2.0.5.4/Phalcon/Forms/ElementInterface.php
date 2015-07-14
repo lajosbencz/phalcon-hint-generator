@@ -15,14 +15,14 @@ interface ElementInterface
 	 *
 	 * @param \Phalcon\Forms\Form $form
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function setForm(\Phalcon\Forms\Form $form);
 
 	/**
 	 * Returns the parent form to the element
 	 *
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function getForm();
 
@@ -31,7 +31,7 @@ interface ElementInterface
 	 *
 	 * @param string $name
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function setName($name);
 
@@ -47,7 +47,7 @@ interface ElementInterface
 	 *
 	 * @param array|string $filters
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function setFilters($filters);
 
@@ -56,14 +56,14 @@ interface ElementInterface
 	 *
 	 * @param string $filter
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function addFilter($filter);
 
 	/**
 	 * Returns the element's filters
 	 *
-	 * @return void
+	 * @return mixed
 	 */
 	public function getFilters();
 
@@ -73,7 +73,7 @@ interface ElementInterface
 	 * @param array $validators
 	 * @param boolean $merge
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function addValidators(array $validators, $merge=true);
 
@@ -82,14 +82,14 @@ interface ElementInterface
 	 *
 	 * @param ValidatorInterface $validator
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function addValidator(ValidatorInterface $validator);
 
 	/**
 	 * Returns the validators registered for the element
 	 *
-	 * @return void
+	 * @return Phalcon\Validation\ValidatorInterface[]
 	 */
 	public function getValidators();
 
@@ -100,7 +100,7 @@ interface ElementInterface
 	 * @param array $attributes
 	 * @param boolean $useChecked
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function prepareAttributes($attributes=null, $useChecked=false);
 
@@ -110,7 +110,7 @@ interface ElementInterface
 	 * @param string $attribute
 	 * @param mixed $value
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function setAttribute($attribute, $value);
 
@@ -120,7 +120,7 @@ interface ElementInterface
 	 * @param string $attribute
 	 * @param mixed $defaultValue
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function getAttribute($attribute, $defaultValue=null);
 
@@ -129,7 +129,7 @@ interface ElementInterface
 	 *
 	 * @param array $attributes
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function setAttributes(array $attributes);
 
@@ -146,7 +146,7 @@ interface ElementInterface
 	 * @param string $option
 	 * @param mixed $value
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function setUserOption($option, $value);
 
@@ -156,7 +156,7 @@ interface ElementInterface
 	 * @param string $option
 	 * @param mixed $defaultValue
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function getUserOption($option, $defaultValue=null);
 
@@ -165,14 +165,14 @@ interface ElementInterface
 	 *
 	 * @param array $options
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function setUserOptions($options);
 
 	/**
 	 * Returns the options for the element
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function getUserOptions();
 
@@ -181,7 +181,7 @@ interface ElementInterface
 	 *
 	 * @param string $label
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function setLabel($label);
 
@@ -205,21 +205,21 @@ interface ElementInterface
 	 *
 	 * @param mixed $value
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function setDefault($value);
 
 	/**
 	 * Returns the default value assigned to the element
 	 *
-	 * @return void
+	 * @return mixed
 	 */
 	public function getDefault();
 
 	/**
 	 * Returns the element's value
 	 *
-	 * @return void
+	 * @return mixed
 	 */
 	public function getValue();
 
@@ -227,7 +227,7 @@ interface ElementInterface
 	 * Returns the messages that belongs to the element
 	 * The element needs to be attached to a form
 	 *
-	 * @return void
+	 * @return Phalcon\Validation\Message\Group
 	 */
 	public function getMessages();
 
@@ -243,7 +243,7 @@ interface ElementInterface
 	 *
 	 * @param Group $group
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function setMessages(Group $group);
 
@@ -252,14 +252,14 @@ interface ElementInterface
 	 *
 	 * @param MessageInterface $message
 	 * 
-	 * @return void
+	 * @return Phalcon\Forms\ElementInterface
 	 */
 	public function appendMessage(MessageInterface $message);
 
 	/**
 	 * Clears every element in the form to its default value
 	 *
-	 * @return void
+	 * @return Phalcon\Forms\Element
 	 */
 	public function clear();
 
@@ -268,7 +268,7 @@ interface ElementInterface
 	 *
 	 * @param array $attributes
 	 * 
-	 * @return void
+	 * @return string
 	 */
 	public function render($attributes=null);
 

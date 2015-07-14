@@ -19,7 +19,7 @@ interface AdapterInterface
 	 * @param int $fetchMode
 	 * @param int $placeholders
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function fetchOne($sqlQuery, $fetchMode=2, $placeholders=null);
 
@@ -30,7 +30,7 @@ interface AdapterInterface
 	 * @param int $fetchMode
 	 * @param int $placeholders
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function fetchAll($sqlQuery, $fetchMode=2, $placeholders=null);
 
@@ -42,7 +42,7 @@ interface AdapterInterface
 	 * @param array $fields
 	 * @param array $dataTypes
 	 * 
-	 * @return void
+	 * @return 	boolean
 	 */
 	public function insert($table, array $values, $fields=null, $dataTypes=null);
 
@@ -55,7 +55,7 @@ interface AdapterInterface
 	 * @param string $whereCondition
 	 * @param array $dataTypes
 	 * 
-	 * @return void
+	 * @return 	boolean
 	 */
 	public function update($table, $fields, $values, $whereCondition=null, $dataTypes=null);
 
@@ -67,7 +67,7 @@ interface AdapterInterface
 	 * @param array $placeholders
 	 * @param array $dataTypes
 	 * 
-	 * @return void
+	 * @return boolean
 	 */
 	public function delete($table, $whereCondition=null, $placeholders=null, $dataTypes=null);
 
@@ -76,7 +76,7 @@ interface AdapterInterface
 	 *
 	 * @param array $columnList
 	 * 
-	 * @return void
+	 * @return	string
 	 */
 	public function getColumnList($columnList);
 
@@ -86,7 +86,7 @@ interface AdapterInterface
 	 * @param mixed $sqlQuery
 	 * @param int $number
 	 * 
-	 * @return void
+	 * @return 	string
 	 */
 	public function limit($sqlQuery, $number);
 
@@ -301,14 +301,14 @@ interface AdapterInterface
 	/**
 	 * Return descriptor used to connect to the active database
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function getDescriptor();
 
 	/**
 	 * Gets the active connection unique identifier
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getConnectionId();
 
@@ -329,28 +329,28 @@ interface AdapterInterface
 	/**
 	 * Active SQL statement in the object
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function getSQLVariables();
 
 	/**
 	 * Active SQL statement in the object
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function getSQLBindTypes();
 
 	/**
 	 * Returns type of database system the adapter is used for
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getType();
 
 	/**
 	 * Returns the name of the dialect used
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getDialectType();
 
@@ -367,7 +367,7 @@ interface AdapterInterface
 	 *
 	 * @param array $descriptor
 	 * 
-	 * @return void
+	 * @return 	boolean
 	 */
 	public function connect($descriptor=null);
 
@@ -432,7 +432,7 @@ interface AdapterInterface
 	 *
 	 * @param string $sequenceName
 	 * 
-	 * @return void
+	 * @return int
 	 */
 	public function lastInsertId($sequenceName=null);
 

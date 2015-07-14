@@ -9,8 +9,6 @@ interface FlashInterface
 	 * Shows a HTML error message
 	 * 
 	 * @param $message
-	 *
-	 * @return void
 	 */
 	public function error($message);
 
@@ -18,8 +16,6 @@ interface FlashInterface
 	 * Shows a HTML notice/information message
 	 * 
 	 * @param $message
-	 *
-	 * @return void
 	 */
 	public function notice($message);
 
@@ -27,8 +23,6 @@ interface FlashInterface
 	 * Shows a HTML success message
 	 * 
 	 * @param $message
-	 *
-	 * @return void
 	 */
 	public function success($message);
 
@@ -36,8 +30,6 @@ interface FlashInterface
 	 * Shows a HTML warning message
 	 * 
 	 * @param $message
-	 *
-	 * @return void
 	 */
 	public function warning($message);
 
@@ -46,8 +38,6 @@ interface FlashInterface
 	 * 
 	 * @param string $type
 	 * @param mixed $message
-	 *
-	 * @return void
 	 */
 	public function message($type, $message);
 

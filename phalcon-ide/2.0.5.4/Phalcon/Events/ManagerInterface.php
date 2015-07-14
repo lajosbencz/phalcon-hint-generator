@@ -11,8 +11,6 @@ interface ManagerInterface
 	 * @param string $eventType
 	 * @param object|callable $handler
 	 *
-	 *
-	 * @return void
 	 */
 	public function attach($eventType, $handler);
 
@@ -22,8 +20,6 @@ interface ManagerInterface
 	 * @param string $eventType
 	 * @param object $handler
 	 *
-	 *
-	 * @return void
 	 */
 	public function detach($eventType, $handler);
 
@@ -31,8 +27,6 @@ interface ManagerInterface
 	 * Removes all events from the EventsManager
 	 * 
 	 * @param string $type
-	 *
-	 * @return void
 	 */
 	public function detachAll($type=null);
 
@@ -43,7 +37,7 @@ interface ManagerInterface
 	 * @param object $source
 	 * @param mixed $data
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function fire($eventType, $source, $data=null);
 
@@ -52,7 +46,7 @@ interface ManagerInterface
 	 *
 	 * @param string $type
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getListeners($type);
 

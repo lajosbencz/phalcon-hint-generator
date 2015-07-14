@@ -26,8 +26,6 @@ class RawValue
 	 * Phalcon\Db\RawValue constructor
 	 * 
 	 * @param mixed $value
-	 *
-	 * @return mixed
 	 */
 	public function __construct($value) {}
 

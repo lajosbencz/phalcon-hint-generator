@@ -11,7 +11,7 @@ interface BackendInterface
 	 * @param int|string $keyName
 	 * @param int $lifetime
 	 * 
-	 * @return void
+	 * @return  mixed
 	 */
 	public function start($keyName, $lifetime=null);
 
@@ -20,22 +20,20 @@ interface BackendInterface
 	 * 
 	 * @param boolean $stopBuffer
 	 *
-	 *
-	 * @return void
 	 */
 	public function stop($stopBuffer=true);
 
 	/**
 	 * Returns front-end instance adapter related to the back-end
 	 *
-	 * @return void
+	 * @return mixed
 	 */
 	public function getFrontend();
 
 	/**
 	 * Returns the backend options
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function getOptions();
 
@@ -58,15 +56,13 @@ interface BackendInterface
 	 * 
 	 * @param string $lastKey
 	 *
-	 *
-	 * @return void
 	 */
 	public function setLastKey($lastKey);
 
 	/**
 	 * Gets the last key stored by the cache
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getLastKey();
 
@@ -76,7 +72,7 @@ interface BackendInterface
 	 * @param int|string $keyName
 	 * @param int $lifetime
 	 * 
-	 * @return void
+	 * @return  mixed
 	 */
 	public function get($keyName, $lifetime=null);
 
@@ -88,8 +84,6 @@ interface BackendInterface
 	 * @param int $lifetime
 	 * @param boolean $stopBuffer
 	 *
-	 *
-	 * @return void
 	 */
 	public function save($keyName=null, $content=null, $lifetime=null, $stopBuffer=true);
 
@@ -98,7 +92,7 @@ interface BackendInterface
 	 *
 	 * @param int|string $keyName
 	 * 
-	 * @return void
+	 * @return boolean
 	 */
 	public function delete($keyName);
 
@@ -107,7 +101,7 @@ interface BackendInterface
 	 *
 	 * @param string $prefix
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function queryKeys($prefix=null);
 
@@ -117,7 +111,7 @@ interface BackendInterface
 	 * @param string $keyName
 	 * @param int $lifetime
 	 * 
-	 * @return void
+	 * @return boolean
 	 */
 	public function exists($keyName=null, $lifetime=null);
 

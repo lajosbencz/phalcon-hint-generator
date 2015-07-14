@@ -13,15 +13,13 @@ interface MetaDataInterface
 	 * Set the meta-data extraction strategy
 	 * 
 	 * @param StrategyInterface $strategy
-	 *
-	 * @return void
 	 */
 	public function setStrategy(StrategyInterface $strategy);
 
 	/**
 	 * Return the strategy to obtain the meta-data
 	 *
-	 * @return void
+	 * @return Phalcon\Mvc\Model\MetaData\StrategyInterface
 	 */
 	public function getStrategy();
 
@@ -30,7 +28,7 @@ interface MetaDataInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function readMetaData(ModelInterface $model);
 
@@ -40,7 +38,7 @@ interface MetaDataInterface
 	 * @param ModelInterface $model
 	 * @param int $index
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function readMetaDataIndex(ModelInterface $model, $index);
 
@@ -51,8 +49,6 @@ interface MetaDataInterface
 	 * @param int $index
 	 * @param mixed $data
 	 *
-	 *
-	 * @return void
 	 */
 	public function writeMetaDataIndex(ModelInterface $model, $index, $data);
 
@@ -61,7 +57,7 @@ interface MetaDataInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function readColumnMap(ModelInterface $model);
 
@@ -71,8 +67,6 @@ interface MetaDataInterface
 	 * @param ModelInterface $model
 	 * @param int $index
 	 *
-	 *
-	 * @return void
 	 */
 	public function readColumnMapIndex(ModelInterface $model, $index);
 
@@ -81,7 +75,7 @@ interface MetaDataInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getAttributes(ModelInterface $model);
 
@@ -90,7 +84,7 @@ interface MetaDataInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getPrimaryKeyAttributes(ModelInterface $model);
 
@@ -99,7 +93,7 @@ interface MetaDataInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getNonPrimaryKeyAttributes(ModelInterface $model);
 
@@ -108,7 +102,7 @@ interface MetaDataInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getNotNullAttributes(ModelInterface $model);
 
@@ -117,7 +111,7 @@ interface MetaDataInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getDataTypes(ModelInterface $model);
 
@@ -126,7 +120,7 @@ interface MetaDataInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getDataTypesNumeric(ModelInterface $model);
 
@@ -135,7 +129,7 @@ interface MetaDataInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return string
 	 */
 	public function getIdentityField(ModelInterface $model);
 
@@ -144,7 +138,7 @@ interface MetaDataInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getBindTypes(ModelInterface $model);
 
@@ -153,7 +147,7 @@ interface MetaDataInterface
 	 *
 	 * @param ModelInterface $model
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function getAutomaticCreateAttributes(ModelInterface $model);
 
@@ -171,8 +165,6 @@ interface MetaDataInterface
 	 * 
 	 * @param ModelInterface $model
 	 * @param array $attributes
-	 *
-	 * @return void
 	 */
 	public function setAutomaticCreateAttributes(ModelInterface $model, array $attributes);
 
@@ -181,8 +173,6 @@ interface MetaDataInterface
 	 * 
 	 * @param ModelInterface $model
 	 * @param array $attributes
-	 *
-	 * @return void
 	 */
 	public function setAutomaticUpdateAttributes(ModelInterface $model, array $attributes);
 
@@ -245,14 +235,12 @@ interface MetaDataInterface
 	/**
 	 * Checks if the internal meta-data container is empty
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	public function isEmpty();
 
 	/**
 	 * Resets internal meta-data in order to regenerate it
-	 *
-	 * @return void
 	 */
 	public function reset();
 
@@ -261,7 +249,7 @@ interface MetaDataInterface
 	 *
 	 * @param string $key
 	 * 
-	 * @return void
+	 * @return array
 	 */
 	public function read($key);
 
@@ -271,8 +259,6 @@ interface MetaDataInterface
 	 * @param string $key
 	 * @param array $data
 	 *
-	 *
-	 * @return void
 	 */
 	public function write($key, $data);
 

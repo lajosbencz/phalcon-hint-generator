@@ -16,56 +16,56 @@ interface ReferenceInterface
 	/**
 	 * Gets the index name
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getName();
 
 	/**
 	 * Gets the schema where referenced table is
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getSchemaName();
 
 	/**
 	 * Gets the schema where referenced table is
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getReferencedSchema();
 
 	/**
 	 * Gets local columns which reference is based
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function getColumns();
 
 	/**
 	 * Gets the referenced table
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getReferencedTable();
 
 	/**
 	 * Gets referenced columns
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function getReferencedColumns();
 
 	/**
 	 * Gets the referenced on delete
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getOnDelete();
 
 	/**
 	 * Gets the referenced on update
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getOnUpdate();
 

@@ -9,7 +9,7 @@ interface QueryInterface
 	 * Parses the intermediate code produced by Phalcon\Mvc\Model\Query\Lang generating another
 	 * intermediate representation that could be executed by Phalcon\Mvc\Model\Query
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function parse();
 
@@ -18,7 +18,7 @@ interface QueryInterface
 	 *
 	 * @param array $cacheOptions
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query
 	 */
 	public function cache($cacheOptions);
 
@@ -26,8 +26,6 @@ interface QueryInterface
 	 * Returns the current cache options
 	 *
 	 * @param array
-	 *
-	 * @return void
 	 */
 	public function getCacheOptions();
 
@@ -36,14 +34,14 @@ interface QueryInterface
 	 *
 	 * @param boolean $uniqueRow
 	 * 
-	 * @return void
+	 * @return Phalcon\Mvc\Model\Query
 	 */
 	public function setUniqueRow($uniqueRow);
 
 	/**
 	 * Check if the query is programmed to get only the first row in the resultset
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	public function getUniqueRow();
 
@@ -53,7 +51,7 @@ interface QueryInterface
 	 * @param array $bindParams
 	 * @param array $bindTypes
 	 * 
-	 * @return void
+	 * @return mixed
 	 */
 	public function execute($bindParams=null, $bindTypes=null);
 
